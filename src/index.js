@@ -21,6 +21,14 @@ Controllers.forEach((controller) => {
 	app.use(controller.path, controller.router); //패스 등록
 });
 
+app.use((err, req, res, next) => {
+	console.log(err);
+	err.message;
+
+	res
+		.status(err.status || 500)
+		.json({ message: err.message || '서버에서 에러가 발생하였음' });
+});
 //========================
 app.get('/', (req, res) => {
 	res.send('3000번 서버에 쓰여질 글');

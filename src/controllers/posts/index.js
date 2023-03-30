@@ -1,5 +1,8 @@
 import { Router } from 'express';
-
+/**
+ * Post Router, 싱글톤 패턴으로 설계하여 한번에 묶기
+ * controller = res.status를 작성하는 곳
+ */
 class PostController {
 	//1.라우터를 가져온다.
 	router = Router();
@@ -49,7 +52,7 @@ class PostController {
 		if (title) thePost.title = title;
 		if (content) thePost.content = content;
 
-		res.status(201).json({ postList: this.postList });
+		res.status(204).json({});
 	}
 	deletePost(req, res) {
 		const { id } = req.params;
@@ -57,7 +60,7 @@ class PostController {
 
 		this.postList = thePost;
 
-		res.status(201).json({ postList: this.postList });
+		res.status(204).json({});
 	}
 }
 
