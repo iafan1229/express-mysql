@@ -1,6 +1,4 @@
-import UserController from './users';
-import PostController from './posts';
+import { UserController } from './users';
+const Controllers = [UserController];
 
-export default [UserController, PostController];
-
-//반복문으로 묶기 위해 배열을 사용함.
+export default Controllers;
